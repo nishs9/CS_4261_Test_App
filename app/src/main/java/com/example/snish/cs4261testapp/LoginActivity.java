@@ -127,11 +127,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Log.d("EmailPassword", "createUserWithEmail:success");
+                            Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout),"Welcome to your account!",
+                                    Snackbar.LENGTH_LONG);
+                            mySnackbar.show();
                             FirebaseUser user = mAuth.getCurrentUser();
                         } else {
                             Log.w("EmailPassword", "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout),"Registration failed!",
+                                    Snackbar.LENGTH_LONG);
+                            mySnackbar.show();
                         }
                     }
                 });
@@ -143,12 +147,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Log.d("success", "signInWithEmail:success");
+                            Log.d("EmailPassword", "createUserWithEmail:success");
+                            Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout),"Signed In!",
+                                    Snackbar.LENGTH_LONG);
+                            mySnackbar.show();
                             FirebaseUser user = mAuth.getCurrentUser();
                         } else {
-                            Log.w("EmailPassword", "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            Log.w("EmailPassword", "createUserWithEmail:failure", task.getException());
+                            Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout),"Authentication Failed!",
+                                    Snackbar.LENGTH_LONG);
+                            mySnackbar.show();
                         }
                     }
                 });
@@ -399,9 +407,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout),"Success!",
-                        Snackbar.LENGTH_LONG);
-                mySnackbar.show();
+                //Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout),"Success!",
+                        //Snackbar.LENGTH_LONG);
+                //mySnackbar.show();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();

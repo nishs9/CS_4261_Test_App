@@ -53,6 +53,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      */
     private static final int REQUEST_READ_CONTACTS = 0;
     private FirebaseAuth mAuth;
+    private boolean successfulSignIn;
 
     /**
      * A dummy authentication store containing known user names and passwords.
@@ -81,16 +82,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         populateAutoComplete();
 
         mPasswordView = (EditText) findViewById(R.id.password);
-        /*mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == EditorInfo.IME_ACTION_DONE || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
-                    return true;
-                }
-                return false;
-            }
-        });*/
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         Button mEmailRegisterButton = (Button) findViewById(R.id.email_register_button);
@@ -131,11 +122,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                     Snackbar.LENGTH_LONG);
                             mySnackbar.show();
                             FirebaseUser user = mAuth.getCurrentUser();
+                            successfulSignIn = true;
                         } else {
                             Log.w("EmailPassword", "createUserWithEmail:failure", task.getException());
                             Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout),"Registration failed!",
                                     Snackbar.LENGTH_LONG);
                             mySnackbar.show();
+                            successfulSignIn = false;
                         }
                     }
                 });
@@ -152,11 +145,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                     Snackbar.LENGTH_LONG);
                             mySnackbar.show();
                             FirebaseUser user = mAuth.getCurrentUser();
+                            successfulSignIn = true;
                         } else {
                             Log.w("EmailPassword", "createUserWithEmail:failure", task.getException());
                             Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout),"Authentication Failed!",
                                     Snackbar.LENGTH_LONG);
                             mySnackbar.show();
+                            successfulSignIn = false;
                         }
                     }
                 });
@@ -378,6 +373,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mPassword = password;
         }
 
+        //Due to our implementation of Firebase, this is an unused 
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
@@ -406,7 +402,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = null;
             showProgress(false);
 
-            if (success) {
+            if (successfulSignIn) {
                 //Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout),"Success!",
                         //Snackbar.LENGTH_LONG);
                 //mySnackbar.show();

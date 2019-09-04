@@ -2,13 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#000">
 
 
     <ImageView
         android:id="@+id/pic"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="261dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
@@ -24,7 +25,8 @@
         android:gravity="center"
         android:text="Nish and Cole"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#949c16"/>
 
     <TextView
         android:id="@+id/Description"
@@ -35,7 +37,8 @@
         android:gravity="center"
         android:text="Winners of the Best Duo Award for  2019"
         android:textSize="18sp"
-        android:textStyle="italic"/>
+        android:textStyle="italic"
+        android:textColor="#949c16"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,7 +51,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Nish" />
+            android:text="Nish"
+            android:textColor="#949c16"/>
 
         <TextView
             android:id="@+id/textbox2"
@@ -56,7 +60,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Cole" />
+            android:text="Cole"
+            android:textColor="#949c16"/>
 
     </LinearLayout>
     <LinearLayout
@@ -70,7 +75,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Kennesaw, Ga" />
+            android:text="Kennesaw, Ga"
+            android:textColor="#949c16"/>
 
         <TextView
             android:id="@+id/textbox4"
@@ -78,7 +84,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Cumming, GA" />
+            android:text="Cumming, GA"
+            android:textColor="#949c16"/>
 
     </LinearLayout>
     <LinearLayout
@@ -92,7 +99,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="5'10" />
+            android:text="5'10"
+            android:textColor="#949c16"/>
 
         <TextView
             android:id="@+id/textbox6"
@@ -100,7 +108,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="6'7" />
+            android:text="6'7"
+            android:textColor="#949c16"/>
 
     </LinearLayout>
     <LinearLayout
@@ -114,7 +123,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="CS Major" />
+            android:text="CS Major"
+            android:textColor="#949c16"/>
 
         <TextView
             android:id="@+id/textbox8"
@@ -122,7 +132,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="CS Major" />
+            android:text="CS Major"
+            android:textColor="#949c16"/>
 
     </LinearLayout>
     <LinearLayout
@@ -136,7 +147,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="nsethunath3@gmail.com" />
+            android:text="nsethunath3@gmail.com"
+            android:textColor="#949c16"/>
 
         <TextView
             android:id="@+id/textbox10"
@@ -144,7 +156,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="cole.killen@gmail.com" />
+            android:text="cole.killen@gmail.com"
+            android:textColor="#949c16"/>
 
     </LinearLayout>
 
@@ -157,7 +170,7 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="Follow Us"
-        android:textColor="#ffff" />
+        android:textColor="#000" />
 
 
 </LinearLayout>

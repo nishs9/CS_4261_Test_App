@@ -3,6 +3,7 @@ package com.example.snish.cs4261testapp;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -105,6 +106,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mProgressView = findViewById(R.id.login_progress);
     }
 
+    public void openProfile() {
+        Intent myIntent = new Intent(this, MainActivity.class);
+        startActivity(myIntent);
+    }
     @Override
     public void onStart() {
         super.onStart();
@@ -373,7 +378,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mPassword = password;
         }
 
-        //Due to our implementation of Firebase, this is an unused 
+        //Due to our implementation of Firebase, this is an unused
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
@@ -403,9 +408,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (successfulSignIn) {
-                //Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout),"Success!",
-                        //Snackbar.LENGTH_LONG);
-                //mySnackbar.show();
+                openProfile();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
